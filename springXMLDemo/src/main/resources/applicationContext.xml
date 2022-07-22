@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="myPhone"
+          class="org.example.Phone">
+    </bean>
+
+    <bean id="myAddress"
+          class="org.example.Address">
+        <constructor-arg index="0" value="00000"/>
+        <property name="city" value="New City"/>
+        <property name="state" value="State"/>
+        <property name="country" value="Country"/>
+        <property name="zipcode" value="00000"/>
+    </bean>
+
+
+    <bean id="myStudent"
+          class="org.example.Student">
+        <constructor-arg ref="myAddress"/>
+        <property name="id" value="2"/>
+        <property name="name" value="John"/>
+        <property name="ph">
+            <list>
+                <bean class="org.example.Phone">
+                    <property name="mob" value="000-000-0000"/>
+                </bean>
+                <bean class="org.example.Phone">
+                    <property name="mob" value="111-111-1111"/>
+                </bean>
+                <bean class="org.example.Phone">
+                    <property name="mob" value="222-222-2222"/>
+                </bean>
+            </list>
+        </property>
+
+    </bean>
+
+
+</beans>
